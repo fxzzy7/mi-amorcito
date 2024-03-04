@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Align items vertically */
+  }
+
+  .textbox {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffc0cb; /* Light pink */
+    color: #fff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Add space below the textbox */
+    width: 300px;
+  }
+
+  img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    padding: 15px 30px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffc0cb; /* Light pink */
+    color: #fff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Add space between buttons */
+  }
+
+  #yesButton {
+    margin-right: 20px;
+  }
+
+  #noButton {
+    margin-left: 20px;
+  }
+</style>
+</head>
+<body>
+<input type="text" class="textbox" readonly value="Me perdonas, amorcito?">
+<img src="https://pbs.twimg.com/media/EcXss4CU8AAZ6Z_.jpg" alt="Image">
+<button id="yesButton" class="button" onclick="openSubPage()">Shi mi amorcito</button>
+<button id="noButton" class="button" onclick="changeTextAndGrow()">Nopi</button>
+
+<script>
+var phrases = [
+  "Perdona a tu princeso :(",
+  "Porfiiii",
+  "Amorcito, perdoname, shi?",
+  "Me estas rompiendo el corazoncito :(",
+  "Andale mi amor hermosa"
+];
+
+function changeTextAndGrow() {
+  var noButton = document.getElementById("noButton");
+  var yesButton = document.getElementById("yesButton");
+  var currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+  yesButton.style.fontSize = (currentSize + 10) + "px";
+  
+  // Randomly select a phrase from the array
+  var randomIndex = Math.floor(Math.random() * phrases.length);
+  noButton.textContent = phrases[randomIndex];
+}
+
+function openSubPage() {
+  // Open a blank sub-page in a new tab
+  var subPage = window.open('', '_blank');
+  
+  // Write HTML content to the sub-page
+  var content = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column; /* Align items vertically */
+      }
+
+      .textbox {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: none;
+        background-color: #ffc0cb; /* Light pink */
+        color: #fff;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px; /* Add space below the textbox */
+        width: 300px;
+      }
+
+      img {
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .button {
+        padding: 15px 30px;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #ffc0cb; /* Light pink */
+        color: #fff;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px; /* Add space between buttons */
+      }
+    </style>
+    </head>
+    <body>
+    <img src="https://img.freepik.com/premium-vector/vector-illustration-heart-symbol-red-color-isolated-white-background_842925-86.jpg" alt="Sub-page Image">
+    <button class="button">Yayy! Mira, te tengo una sorprecita, preciosa. Cuando leas esto, escribeme "sorpresa" y te la envio, shi? </button>
+    </body>
+    </html>
+  `;
+  
+  // Write content to the sub-page document
+  subPage.document.open();
+  subPage.document.write(content);
+  subPage.document.close();
+}
+</script>
+
+</body>
+</html>
